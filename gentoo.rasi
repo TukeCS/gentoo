@@ -1,0 +1,126 @@
+/*
+ * Gentoo dark theme for rofi (1.7+)
+ * Official palette: #54487A #61538D #6E56AF #DDDAEC #DDDFFF #73D216 #D9534F
+ *
+ * Usage: save as ~/.config/rofi/themes/gentoo.rasi, then put this as the
+ * LAST line of ~/.config/rofi/config.rasi:
+ *   @theme "~/.config/rofi/themes/gentoo.rasi"
+ */
+
+* {
+    bg:        #17141f;
+    bg-alt:    #221d2e;
+    surface:   #2e2740;
+    fg:        #dddaec;
+    fg-dim:    #9a93b5;
+    purple:    #54487a;
+    purple-l:  #61538d;
+    purple-l2: #6e56af;
+    lavender:  #dddfff;
+    green:     #73d216;
+    red:       #d9534f;
+
+    background-color: transparent;
+    text-color:       @fg;
+    font:             "monospace 12";
+}
+
+window {
+    width:            640px;
+    location:         center;
+    background-color: @bg;
+    border:           2px;
+    border-color:     @purple-l2;
+    border-radius:    10px;
+}
+
+mainbox {
+    children: [ inputbar, message, listview ];
+    spacing:  0;
+}
+
+inputbar {
+    children:         [ prompt, entry ];
+    background-color: @purple;
+    padding:          14px 16px;
+    spacing:          12px;
+}
+
+prompt {
+    text-color: @green;
+    font:       "monospace Bold 12";
+}
+
+entry {
+    text-color:        @lavender;
+    placeholder:       "search…";
+    placeholder-color: #a79fc9;
+    cursor:            text;
+}
+
+message {
+    background-color: @bg-alt;
+    padding:          10px 16px;
+}
+
+textbox {
+    text-color: @fg;
+}
+
+listview {
+    lines:        8;
+    columns:      1;
+    fixed-height: true;
+    scrollbar:    false;
+    padding:      8px;
+    spacing:      4px;
+}
+
+element {
+    padding:       8px 12px;
+    spacing:       12px;
+    border-radius: 6px;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color:       @fg;
+}
+
+element selected.normal {
+    background-color: @purple;
+    text-color:       @lavender;
+}
+
+element normal.active,
+element alternate.active {
+    text-color: @green;
+}
+
+element selected.active {
+    background-color: @purple;
+    text-color:       @green;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    text-color: @red;
+}
+
+element selected.urgent {
+    background-color: @red;
+    text-color:       @bg;
+}
+
+element-icon {
+    size:             1.2em;
+    background-color: inherit;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+    vertical-align:   0.5;
+    highlight:        bold #73d216;
+}
